@@ -1,0 +1,43 @@
+:root{
+  --default-text-color: black;
+  --button-color: lightgray;
+  --primary-color: white;
+  --secondary-color: #FFFF00;
+  --button-hover-color: #ADD8E6;
+}
+
+
+*{
+  box-sizing: border-box;
+}
+  
+  
+  .button-class{
+      background-color: var(--button-color);
+      border: none;
+      color: var(--default-text-color);
+      padding: 16px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.8s;
+      transition-property: opacity;
+      
+  
+  }
+  
+  .button-class:hover,
+  .button-class:focus{
+    cursor: pointer;
+    opacity: 0.8;
+    background-color: var(--button-hover-color);
+  
+  }
+  
+ .page-header{
+  background-color: var(--secondary-color);
+  display: flex;
+  clear: both;
+ }
