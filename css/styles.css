@@ -41,3 +41,10 @@
   display: flex;
   clear: both;
  }
+
+ #loading-message {
+  display: flex;
+  justify-content: center;
+  color: blue;
+
+}
