@@ -2,6 +2,16 @@ let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
+    const loadingMessage = document.getElementById("loading-message");
+
+    function showLoadingMessage() {
+        loadingMessage.style.display = "block";
+    }
+
+    function hideLoadingMessage() {
+        loadingMessage.style.display = "none";
+    }
+
     function add(pokemon) {
         if (typeof pokemon === "object" && "name" in pokemon) {
             pokemonList.push(pokemon);
@@ -36,6 +46,7 @@ let pokemonRepository = (function () {
     }
 
     function loadList() {
+        showLoadingMessage();
         return fetch(apiUrl)
             .then(function (response) {
                 return response.json();
@@ -49,13 +60,17 @@ let pokemonRepository = (function () {
                     add(pokemon);
                     console.log(pokemon);
                 });
+                setTimeout(function () {
+                    hideLoadingMessage();
+                }, 1000); // Delay in milliseconds (e.g., 1000ms = 1s)
             })
             .catch(function (e) {
+                hideLoadingMessage();
                 console.error(e);
             });
     }
-
     function loadDetails(item) {
+        showLoadingMessage();
         let url = item.detailsUrl;
         return fetch(url)
             .then(function (response) {
@@ -66,8 +81,10 @@ let pokemonRepository = (function () {
                 item.imageUrl = details.sprites.front_default;
                 item.height = details.height;
                 item.types = details.types[0];
+                hideLoadingMessage();
             })
             .catch(function (e) {
+                hideLoadingMessage();
                 console.error(e);
             });
     }
