@@ -21,8 +21,8 @@
 
 ## Links
 
-- Place holder
-- Place holder
+- [My Code](https://github.com/WMSANDERS85/Pokedex-js-app)
+- [Project site](https://wmsanders85.github.io/Pokedex-js-app/)
 
 ## Process
 
@@ -30,9 +30,14 @@
 
 - HTML
 - CSS
-- JavaScript
+- JavaScript ES6
+   -Polyfills for older browsers
 
 ### Dependencies
+
+-Polyfills
+   -[Promise](https://raw.githubusercontent.com/taylorhakes/promise-polyfill/master/dist/polyfill.js)
+   -[Fetch](https://github.com/github/fetch/blob/master/fetch.js)
 
 
 

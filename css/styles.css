@@ -83,7 +83,6 @@
 
 .modal-close {
   float: right;
-  display: none;
   border: 0;
   background: none;
   color: var(--default-text-color);
@@ -103,6 +102,13 @@
 }
 
 #modal-container.is-visible {
-  /* CSS for modal container - add your own desired CSS styles here */
-  display: block;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  z-index: 999; /* The high z-index positions the modal on top of everything else*/
+  display: grid;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+  overflow: auto;
 }
