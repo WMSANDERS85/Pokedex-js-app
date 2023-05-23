@@ -31,13 +31,13 @@
 - HTML
 - CSS
 - JavaScript ES6
-   -Polyfills for older browsers
+      -Polyfills for older browsers
 
 ### Dependencies
 
 -Polyfills
-   -[Promise](https://raw.githubusercontent.com/taylorhakes/promise-polyfill/master/dist/polyfill.js)
-   -[Fetch](https://github.com/github/fetch/blob/master/fetch.js)
+      -[Promise](https://raw.githubusercontent.com/taylorhakes/promise-polyfill/master/dist/polyfill.js)
+      -[Fetch](https://github.com/github/fetch/blob/master/fetch.js)
 
 
 
