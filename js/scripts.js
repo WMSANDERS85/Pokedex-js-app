@@ -83,7 +83,17 @@ let pokemonRepository = (function () {
                 // Now we add the details to the item
                 pokemon.imageUrl = details.sprites.front_default;
                 pokemon.height = details.height;
-                pokemon.types = details.types[0];
+                
+                // create a forEach loop to iterate through the API object types and display to the user.
+                let arrayOfTypes = [];
+                details.types.forEach(function (pokemon) {
+                    arrayOfTypes.push(pokemon.type.name);
+                });
+                
+                //define a space in between array items
+                pokemon.types = arrayOfTypes.join(', ')
+
+
                 hideLoadingMessage();
             })
             .catch(function (e) {
