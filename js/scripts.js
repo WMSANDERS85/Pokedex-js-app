@@ -107,6 +107,7 @@ let pokemonRepository = (function () {
         loadDetails(pokemon).then(function () {
             modalContainer.innerHTML = "";
 
+            // Assigning the return the createElement method to a new variable named pokemonModal
             let pokemonModal = document.createElement("div");
             pokemonModal.classList.add("modal");
 
