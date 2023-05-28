@@ -86,8 +86,11 @@ let pokemonRepository = (function () {
             })
             .then(function (details) {
                 // Now we add the details to the item
-                pokemon.imageUrl = details.sprites.front_default;
+                pokemon.imageUrlFront = details.sprites.front_default;
+                pokemon.imageUrlBack = details.sprites.back_default;
                 pokemon.height = details.height;
+                pokemon.weight = details.weight;
+                
                 
                 // create a forEach loop to iterate through the API object types and display to the user.
                 let arrayOfTypes = [];
@@ -97,6 +100,13 @@ let pokemonRepository = (function () {
                 
                 //define a space in between array items
                 pokemon.types = arrayOfTypes.join(', ')
+
+                let arrayOfAbilities = [];
+                details.abilities.forEach(function (ability) {
+                    arrayOfAbilities.push(ability.ability.name);
+                });
+
+                pokemon.abilities = arrayOfAbilities.join(', ')
 
 
                 hideLoadingMessage();
@@ -127,11 +137,11 @@ let pokemonRepository = (function () {
             let imageElementBack = $('<img class="modal-img" style="width:50%>');
             imageElementBack.attr("src", pokemon.imageUrlBack);
 
-            let heightElement = $("<p>" + "height : " + pokemon.height + "</p>");
+            let heightElement = $("<p>" + "Height : " + pokemon.height + "</p>");
 
-            let weightElement = $("<p>" + "weight : " + pokemon.weight + "</p>");
+            let weightElement = $("<p>" + "Weight : " + pokemon.weight + "</p>");
 
-            let typesElement = $("<p>" + "yypes : " + pokemon.types + "</p>");
+            let typesElement = $("<p>" + "Types : " + pokemon.types + "</p>");
 
             let abilitiesElement = $("<p>" + "abilities : " + pokemon.abilities + "</p>");
 
@@ -143,28 +153,8 @@ let pokemonRepository = (function () {
             modalBody.append(typesElement);
             modalBody.append(abilitiesElement);
             
-            //modalContainer.classList.add("is-visible");
         });
     }
-
-    // create a function that will hide the modal
-    //function hideDetails() {
-       // modalContainer.classList.remove("is-visible");
-   // }
-
-    // Allows modal to be closed when the ESC key is pressed.
-    // window.addEventListener("keydown", (e) => {
-    //     if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
-    //         hideDetails();
-    //     }
-    // });
-    // Listens for when area outside of the modal is clicked. If area outside modal is clicked the hideDetails function will run.
-    // modalContainer.addEventListener("click", (e) => {
-    //     let target = e.target;
-    //     if (target === modalContainer) {
-    //         hideDetails();
-    //     }
-    // });
 
     return {
         getAll: getAll,
@@ -173,7 +163,6 @@ let pokemonRepository = (function () {
         loadList: loadList,
         loadDetails: loadDetails,
         showDetails: showDetails,
-        // hideDetails: hideDetails,
     };
 })();
 
