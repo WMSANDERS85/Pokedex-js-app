@@ -36,7 +36,7 @@ let pokemonRepository = (function () {
 
         let button = document.createElement('button');
 
-        button.innerText = pokemon.name;
+        button.innerText = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);;
 
         button.classList.add('button-class');
 
@@ -129,7 +129,7 @@ let pokemonRepository = (function () {
             modalTitle.empty();
             modalBody.empty();
 
-            let nameElement = $('<h1>' + pokemon.name + '</h1>');
+            let nameElement = $('<h1>' + pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) + '</h1>');
 
             let imageElementFront = $('<img class="modal-img" style="width: 50%">');
             imageElementFront.attr("src", pokemon.imageUrlFront);
