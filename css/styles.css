@@ -7,9 +7,7 @@
 }
 
 
-*{
-  box-sizing: border-box;
-}
+
   
   
   .button-class{
@@ -36,11 +34,7 @@
   
   }
   
- .page-header{
-  background-color: var(--secondary-color);
-  display: flex;
-  clear: both;
- }
+
 
  #loading-message {
   display: flex;
@@ -69,4 +63,15 @@
   display: grid;
   text-align: center;
 }
+
+li{
+  display: flex;
+  justify-content: center;
+}
+
+ul{
+  justify-content: center;
+  list-style-type: none;
+}
+
 
