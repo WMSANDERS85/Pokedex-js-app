@@ -1,6 +1,14 @@
 let pokemonRepository = (function () {
     let pokemonList = [];
 
+    function filterPokemons(query) {
+        return pokemonList.filter(function (pokemon) {
+          let pokemonLowerCase = pokemon.name.toLowerCase();
+          let queryLowerCase = query.toLowerCase();
+          return pokemonLowerCase.startsWith(queryLowerCase);
+        });
+      }
+
     let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
     let modalContainer = document.querySelector("#exampleModal");
@@ -171,11 +179,39 @@ let pokemonRepository = (function () {
         loadList: loadList,
         loadDetails: loadDetails,
         showDetails: showDetails,
+        filterPokemons: filterPokemons,
     };
 })();
 
+
+let inputField = document.querySelector('input[type="search"]');
+
+function removeList() {
+  let pokedex = document.querySelector('.pokemon-list');
+  pokedex.innerHTML = '';
+}
+
+function showErrorMessage(message) {
+  let pokedex = document.querySelector('.pokemon-list');
+  pokedex.innerHTML = `<li>${message}</li>`;
+}
+
+function addListPokemon(pokemon) {
+  pokemonRepository.addListItem(pokemon);
+}
+
+inputField.addEventListener('input', function () {
+  let query = inputField.value;
+  let filteredList = pokemonRepository.filterPokemons(query);
+  removeList();
+  if (filteredList.length === 0) {
+    showErrorMessage('Sorry. There are no Pokémon matching your search criteria.');
+  } else {
+    filteredList.forEach(addListPokemon);
+  }
+});
+
 pokemonRepository.loadList().then(function () {
-    pokemonRepository.getAll().forEach(function (pokemon) {
-        pokemonRepository.addListItem(pokemon);
-    });
+  // Load the initial list
+  pokemonRepository.getAll().forEach(addListPokemon);
 });
