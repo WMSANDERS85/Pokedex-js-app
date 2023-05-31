@@ -52,7 +52,7 @@ let pokemonRepository = (function () {
         button.setAttribute('data-target', '#exampleModal');
 
         let pokemonImage = document.createElement('img');
-        pokemonImage.src = pokemon.imageElementFront;
+        pokemonImage.src = pokemon.imageUrlFront;
         button.appendChild(pokemonImage);
 
         listitem.appendChild(button);
@@ -74,14 +74,20 @@ let pokemonRepository = (function () {
                 return response.json();
             })
             .then(function (json) {
-                json.results.forEach(function (item) {
+                let promises = json.results.map(function (item) {
                     let pokemon = {
                         name: item.name,
                         detailsUrl: item.url,
                     };
                     add(pokemon);
-                    console.log(pokemon);
+                    // Call loadDetails here for each pokemon
+                    return loadDetails(pokemon);
                 });
+                // Wait for all the Pokemon details to load before hiding the loading message
+                return Promise.all(promises);
+            })
+            .then(function () {
+                // Hide the loading message after all the Pokemon details have loaded
                 setTimeout(function () {
                     hideLoadingMessage();
                 }, 1000); // Delay in milliseconds (e.g., 1000ms = 1s)
