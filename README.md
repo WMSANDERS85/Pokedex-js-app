@@ -34,15 +34,19 @@
    - Polyfills for older browsers
 
 
-
-
-
 ### Dependencies
 
 -Polyfills
    - [Promise](https://raw.githubusercontent.com/taylorhakes/promise-polyfill/master/dist/polyfill.js)
    - [Fetch](https://github.com/github/fetch/blob/master/fetch.js)
+
+
 - Frameworks
+
+   - [Bootstrap](https://getbootstrap.com/)
+   - [ESLint](https://eslint.org/docs/latest/)
+   - [Stylelint](https://gist.github.com/mydea/8a5c49b2a13320871ab29eb88a0e7d37)
+
 
 
 
