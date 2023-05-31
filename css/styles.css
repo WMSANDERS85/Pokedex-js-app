@@ -1,9 +1,9 @@
 :root{
   --default-text-color: black;
-  --button-color: lightgray;
   --primary-color: white;
-  --secondary-color: #FFFF00;
+  --secondary-color: #FFCB05;
   --button-hover-color: #ADD8E6;
+  --button-outline:  #2a75bb;
 }
 
 
@@ -11,15 +11,17 @@
   
   
   .button-class{
-      background-color: var(--button-color);
-      border: none;
+      background-color: var(--secondary-color);
+      border: 3px solid var(--button-outline);
       color: var(--default-text-color);
-      padding: 16px 32px;
+      border-radius: 15px;
+      padding: 20px;
       text-align: center;
       text-decoration: none;
       display: inline-block;
       font-size: 16px;
-      margin: 4px 2px;
+      margin: 24px auto;
+      height: 180px;
       transition-duration: 0.8s;
       transition-property: opacity;
       
@@ -74,4 +76,6 @@ ul{
   list-style-type: none;
 }
 
-
+body{
+  background-color: var(--primary-color);
+}

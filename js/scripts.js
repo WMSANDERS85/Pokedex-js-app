@@ -40,13 +40,13 @@ let pokemonRepository = (function () {
 
         let listitem = document.createElement('li');
 
-        listitem.classList.add('list-group-item');
+        listitem.classList.add('col');
 
         let button = document.createElement('button');
 
         button.innerText = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);;
 
-        button.classList.add('button-class','btn','btn-primary');
+        button.classList.add('button-class');
 
         button.setAttribute('data-toggle', 'modal');
         button.setAttribute('data-target', '#exampleModal');
