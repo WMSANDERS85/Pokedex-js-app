@@ -10,11 +10,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'linebreak-style': 'off',
-    quotes: ['error', 'single'],
-
-    'no-use-before-define': 'off',
-
-    'no-trailing-spaces': 'off',
+    'line-break': off,
   },
 };
