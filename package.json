@@ -1,0 +1,20 @@
+{
+  "name": "simple-js-app",
+  "version": "1.0.0",
+  "description": "- [Overview](#overview)\r    - [Key Features](#key-features)\r - [Links](#links)\r - [Process](#process)\r    - [Programming Languages](#programming-languages)\r    - [Dependencies](#dependencies)\r    - [Used Resources](#used-resources)",
+  "main": "stylelint.js",
+  "devDependencies": {
+    "eslint": "^8.41.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "prettier": "2.8.8"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eslint-config-prettier": "^8.8.0"
+  }
+}
