@@ -36,7 +36,7 @@
 
 ### Dependencies
 
--Polyfills
+- Polyfills
    - [Promise](https://raw.githubusercontent.com/taylorhakes/promise-polyfill/master/dist/polyfill.js)
    - [Fetch](https://github.com/github/fetch/blob/master/fetch.js)
 
