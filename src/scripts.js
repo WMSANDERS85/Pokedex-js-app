@@ -1,5 +1,9 @@
+/* eslint-disable func-names */
+/* eslint-disable no-undef */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-useless-concat */
+/* eslint-disable no-console */
 const pokemonRepository = (function () {
-  // \n
   const pokemonList = [];
 
   function filterPokemons(query) {
@@ -11,8 +15,6 @@ const pokemonRepository = (function () {
   }
 
   const apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-
-  const modalContainer = document.querySelector('#exampleModal');
 
   const loadingMessage = document.getElementById('loading-message');
 
@@ -110,6 +112,7 @@ const pokemonRepository = (function () {
 
         // create a forEach loop to iterate through the API object types and display to the user.
         const arrayOfTypes = [];
+        // eslint-disable-next-line no-shadow
         details.types.forEach((pokemon) => {
           arrayOfTypes.push(pokemon.type.name);
         });
@@ -137,7 +140,6 @@ const pokemonRepository = (function () {
     loadDetails(pokemon).then(() => {
       const modalBody = $('.modal-body');
       const modalTitle = $('.modal-title');
-      const modalHeader = $('.modal-header');
 
       modalTitle.empty();
       modalBody.empty();
